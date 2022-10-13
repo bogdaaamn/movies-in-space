@@ -1,0 +1,7 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 1
+micros:
+    - name: movies-in-space
+      src: .
+      engine: next
+      primary: true
