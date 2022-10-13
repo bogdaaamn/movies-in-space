@@ -15,8 +15,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   // Fetch data from the TMDB API
   const res = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${
-      process.env.API_KEY
+    `${process.env.TMDB_API_URL}/search/movie?api_key=${
+      process.env.TMDB_API_KEY
     }&query=${q ?? ""}`
   );
 
