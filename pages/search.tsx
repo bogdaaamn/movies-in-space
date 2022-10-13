@@ -1,9 +1,8 @@
-import { useRouter } from "next/router";
 import { GetServerSideProps } from "next/types";
-import { TmdbMovie } from "~types/TmdbMovie";
+import { TmdbSearchResult } from "~types/TmdbSearchResult";
 
 type PropsType = {
-  data: TmdbMovie;
+  data: TmdbSearchResult;
 };
 
 const Movie = ({ data }: PropsType) => {
@@ -11,9 +10,8 @@ const Movie = ({ data }: PropsType) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  // Get the ID from the query string
+  // Get the query from the query string
   const { q } = context.query;
-  console.log(q);
 
   // Fetch data from the TMDB API
   const res = await fetch(
@@ -22,8 +20,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }&query=${q ?? ""}`
   );
 
-  const data = await res.json();
-  console.log(data);
+  const data: TmdbSearchResult = await res.json();
 
   // Pass data to the page via props
   return { props: { data } };

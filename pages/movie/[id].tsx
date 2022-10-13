@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { GetServerSideProps } from "next/types";
 import { TmdbMovie } from "~types/TmdbMovie";
 
